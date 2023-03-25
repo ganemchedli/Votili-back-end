@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable int id) {
-        return userService.findOne(String.valueOf(id));
+        return userService.findOne((long) id);
     }
 
     @PostMapping
@@ -29,12 +29,12 @@ public class UserController {
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable int id, @RequestBody User user) {
-        return userService.update(String.valueOf(id), user);
+        return userService.update((long) id, user);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) {
-        userService.delete(String.valueOf(id));
+        userService.delete((long) id);
     }
 
 }

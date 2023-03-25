@@ -5,20 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name="person")
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="Personne")
-@DiscriminatorValue("PERSONNE")
+@DiscriminatorColumn(name="Person_type",discriminatorType = DiscriminatorType.INTEGER)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-    private String nom ;
-    private String prenom;
-    private String login ;
-    private String password;
-    private int numCin;
+    protected Long id ;
+    protected String nom ;
+    protected String prenom;
+    protected String email ;
+    protected String password;
+    protected int numCin;
 }

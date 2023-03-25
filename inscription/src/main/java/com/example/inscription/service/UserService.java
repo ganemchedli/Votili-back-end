@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public interface UserService {
     public List<User> findAll();
-    public User findOne(@PathVariable("id") String userId);
+    public User findOne(@PathVariable("id") Long userId);
     public User create(@RequestBody User user);
-    public User update(@PathVariable("id") String id, @RequestBody User user);
-    public void delete(@PathVariable("id") String id);
+    public User update(@PathVariable("id") Long id, @RequestBody User user);
+    public void delete(@PathVariable("id") Long id);
 }
