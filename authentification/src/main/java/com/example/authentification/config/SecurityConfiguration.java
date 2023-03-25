@@ -1,6 +1,7 @@
 package com.example.authentification.config;
 
 import com.example.authentification.service.UserService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,12 +15,17 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@Data
 public class SecurityConfiguration {
 
     @Value("${security.enable-csrf}")
     private boolean csrfEnabled;
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public SecurityConfiguration(UserService userService) {
+        this.userService = userService;
+    }
+
     @Autowired
     void registerProvider(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService) ;
@@ -35,13 +41,17 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         if(!csrfEnabled)
         {
-               http.csrf().disable()
-                    .authorizeHttpRequests((request) ->request
+               http.
+                       csrf().disable()
+                       .authorizeHttpRequests((request) ->request
                             .requestMatchers("/authenticate").permitAll()
-                            .anyRequest().authenticated() );
+                            .anyRequest().authenticated() )
+                       .exceptionHandling()
+                       .accessDeniedPage("/403")
+                       .and().formLogin()
+                       .and().logout()
+                       .invalidateHttpSession(true);
         }
-
-
         return http.build();
     }
 

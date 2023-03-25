@@ -4,6 +4,7 @@ import com.example.authentification.model.JwtRequest;
 import com.example.authentification.model.JwtResponse;
 import com.example.authentification.service.UserService;
 import com.example.authentification.utility.JWTUtility;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,7 +22,7 @@ public class HomeController {
     @Autowired
     private AuthenticationManager authenticationManager ;
     @Autowired
-    private UserService userService ;
+    private  UserService userService ;
     @GetMapping("/")
     public String home(){
         return "Welcome" ;

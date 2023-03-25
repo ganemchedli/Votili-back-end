@@ -1,5 +1,6 @@
 package com.example.authentification.utility;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.util.function.Function;
 
 @Component
+@Data
 public class JWTUtility implements Serializable {
     @Serial
     private static final long serialVersionUID = 234234523523L;
