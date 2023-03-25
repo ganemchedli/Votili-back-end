@@ -31,12 +31,19 @@ public class UserServiceImpl implements UserService {
         return repository.findById(id).orElseThrow(() ->
                 new NotFound("User with id "+ id + "does not found"));
     }
+    @org.springframework.transaction.annotation.Transactional(readOnly=true)
+    @Override
+    public User findByUsername(String nom) {
+        return repository.findByEmail(nom).orElseThrow(() ->
+                new NotFound("User with username "+ nom + "does not found"));
+
+    }
 
     @org.springframework.transaction.annotation.Transactional
     @Override
     public User create(User user)  {
         Optional<User> mayExists = repository.findByEmail(user.getEmail());
-        if(mayExists.isPresent()) {
+        if(mayExists == null) {
             throw new BadRequest("User with email " +user.getEmail()+ "already exists");
         }
         return repository.save(user);

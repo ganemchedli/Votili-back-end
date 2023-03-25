@@ -3,5 +3,8 @@ server:
 
 jwt:
   secret: secretket123
+  bezkoder:
+    app:
+      jwtExpirationMs: 86400000
 
 security.enable-csrf: false

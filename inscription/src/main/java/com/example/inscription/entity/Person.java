@@ -18,6 +18,7 @@ public class Person {
     protected Long id ;
     protected String nom ;
     protected String prenom;
+    //@Column(unique=true)
     protected String email ;
     protected String password;
     protected int numCin;

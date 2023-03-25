@@ -1,5 +1,8 @@
 package com.example.authentification.utility;
 
+
+
+/*
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -76,3 +79,4 @@ public class JWTUtility implements Serializable {
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 }
+*/

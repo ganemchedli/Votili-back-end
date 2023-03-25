@@ -1,6 +1,6 @@
 package com.example.authentification.config;
-
-import com.example.authentification.service.UserService;
+/*
+//import com.example.authentification.service.UserService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,3 +56,4 @@ public class SecurityConfiguration {
     }
 
 }
+*/

@@ -17,12 +17,17 @@ public class UserController {
         this.userService = userService;
     }
 
+   @GetMapping("/{username}")
+    public User getUserByEmail(@PathVariable String username){
+        return userService.findByUsername(username);
+    }
     @GetMapping("/{id}")
     public User getUserById(@PathVariable int id) {
         return userService.findOne((long) id);
     }
 
-    @PostMapping
+
+    @PostMapping("/")
     public User createUser(@RequestBody User user) {
         return userService.create(user);
     }
