@@ -2,14 +2,12 @@ package com.example.inscription.controller;
 
 import com.example.inscription.entity.User;
 import com.example.inscription.service.UserService;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-//@Autowired not final
     @Autowired
     private  UserService userService;
 
