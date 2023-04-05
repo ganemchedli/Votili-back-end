@@ -1,7 +1,2 @@
 server:
-  port: 8080
-
-jwt:
-  secret: secretket123
-
-security.enable-csrf: false
+  8081
