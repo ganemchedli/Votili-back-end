@@ -14,6 +14,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 @Entity
@@ -21,11 +23,18 @@ import jakarta.persistence.Table;
 @Table(name="Election")
 
 public abstract class Election {
-    @Id @Column(unique = true)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToMany(mappedBy = "elections", fetch = FetchType.EAGER )
-    private List<Personne> personnes = new ArrayList<>();
+    
+    @ManyToMany
+    @JoinTable(
+			name="personne_election",
+			joinColumns = @JoinColumn(referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
+			)
+    
+         private List<Personne> personnes = new ArrayList<>();
 	private String Code;
 	
 	
