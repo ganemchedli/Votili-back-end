@@ -24,8 +24,8 @@ import jakarta.persistence.Table;
 public  class Personne {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	private String nom;
 	private String prenom;
@@ -33,12 +33,7 @@ public  class Personne {
 	private String password;
 	private int numcin;
 	
-	@ManyToMany
-	@JoinTable(
-			name="personne_election",
-			joinColumns = @JoinColumn(referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
-			)
+	@ManyToMany(mappedBy ="personnes")
 	private List<Election> elections = new ArrayList<>();
 	 
 	
