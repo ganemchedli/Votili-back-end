@@ -33,12 +33,12 @@ public class AuthenticationService {
     private String region ;
     private Genre genre ;*/
     public AuthenticationResponse register(RegisterRequest request) {
-        String fileName = StringUtils.cleanPath(request.getFile().getOriginalFilename()) ;
-        if(fileName.contains(".."))
-        {
-            System.out.println("not a a valid file");
-        }
-        try{
+        //String fileName = StringUtils.cleanPath(request.getFile().getOriginalFilename()) ;
+        //if(fileName.contains(".."))
+       // {
+        //    System.out.println("not a a valid file");
+       // }
+       // try{
             var user = User.builder()
                     .firstname(request.getFirstname())
                     .lastname(request.getLastname())
@@ -49,7 +49,8 @@ public class AuthenticationService {
                     .region(request.getRegion())
                     .genre(request.getGenre())
                     .bac(request.isBac())
-                    .image(Base64.getEncoder().encodeToString(request.getFile().getBytes()))
+                   // .image(Base64.getEncoder().encodeToString(request.getFile().getBytes()))
+                    .role(request.getRole())
                     .build();
             var savedUser = repository.save(user);
             var jwtToken = jwtService.generateToken(user);
@@ -58,10 +59,10 @@ public class AuthenticationService {
                     .token(jwtToken)
                     .build();
 
-        }catch(IOException e ){
-            e.printStackTrace();
-            return null;
-        }
+       // }catch{
+
+      //      return null;
+       // }
 
     }
 

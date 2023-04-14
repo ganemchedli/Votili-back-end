@@ -20,7 +20,8 @@ public class RegisterRequest  {
     private  int numCin;
     private String region ;
     private Genre genre ;
-    MultipartFile file ;
+    private Role role = Role.USER ;
+   // MultipartFile file ;
 
 
 }
