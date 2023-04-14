@@ -112,14 +112,37 @@ public void SupprimerElection(Long id)
 	@Override
 	public void AssocieUnAdmin(Admin admin, Long idElection) {
 		// TODO Auto-generated method stub
+		/*
         Election el =er.findById(idElection).orElseThrow(()-> new EntityNotFoundException("E lection n existe pas !!"));
 		
 		el.getPersonnes().add(admin);
 		admin.getElections().add(el);
-		er.save(el);
-		pr.save(admin);
+		*/
 		
-	}
+		 Election el = er.findById(idElection).orElseThrow(() -> new EntityNotFoundException("Election n'existe pas !!"));
+		    
+		    List<Personne> personnes = el.getPersonnes();
+		   int lon = personnes.size();
+		   System.out.println("adad les personnes li fi he4i l election:"+lon);
+		   
+		    boolean exist = false;
+		    
+		    for (Personne p : personnes) {   // si le personne mawjoud fi liste yo5rej ma yautorizihech martin
+		        if (p.getId() == admin.getId()) {
+		            exist = true;
+		            break;
+		        }
+		    }
+		    
+		    if (!exist) {
+		        personnes.add(admin);
+		        admin.getElections().add(el);
+		        er.save(el);
+		        pr.save(admin);
+		    }
+		}
+		
+	
 
 	@Override
 	public void AjouterUnCondidats(Condidat condidat, Long idElection) {

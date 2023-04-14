@@ -21,7 +21,10 @@ import com.example.demo.entities.ElectionStandard;
 import com.example.demo.entities.Personne;
 import com.example.demo.entities.User;
 import com.example.demo.service.ElectionServiceImpl;
+
 import com.example.demo.service.Personneserviceimpl;
+
+
 
 @RestController
 public class controller {
@@ -36,6 +39,8 @@ public class controller {
 */
 	@Autowired
 	Personneserviceimpl ps;
+	
+	
 	
 	@RequestMapping("/hello")
 	public String sayhello()
@@ -88,7 +93,7 @@ public class controller {
 		
 	}
 	
-	@PostMapping (path= "/adduserElection/{id}")
+	@PostMapping (path= "/adduserElection/{id}") // ajouter un utilisateur à une élection
 	public void adduserElection (@RequestBody User per,@PathVariable Long id)
 	{
 		
@@ -115,10 +120,10 @@ public class controller {
 		
 		List<String>res=ps.ReturnAllElectionPersonne(id);
 		int lon =res.size();
-		mess=mess= "cherek fi "+lon+" election w "+ " les election li cherek fihom l personne li ando id "+id +" sonts :";
+		mess=mess= "IL participe à "+lon+" elections et "+ " les election de l'utilisateur dont l'id = "+id +" sonts :";
 		for(String code : res)
 		{
-			mess=mess+ code;
+			mess=mess+" , "+ code;
 		}
 		
 		return mess;
