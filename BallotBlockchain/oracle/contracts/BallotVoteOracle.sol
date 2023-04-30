@@ -19,6 +19,7 @@ contract BallotVoteOracle is Ownable {
     struct Voter {
         int id;
         string name;
+        string lastName;
         uint256 cin;
         uint8 age;
         string region;
@@ -35,9 +36,9 @@ contract BallotVoteOracle is Ownable {
     }
 
     struct VoteCard {
-        Voter votant;
+        Voter voter;
         Candidate candidate;
-        uint256 DateVote;
+        uint256 dateVote;
         string codeElection;
     }
 
@@ -48,7 +49,7 @@ contract BallotVoteOracle is Ownable {
 
     ///@notice give the right to vote to an address
     ///@param voter the address of the voter
-    function giveRightTovote(address voter) public view {
+    function giveRightToVote(address voter) public view {
         require(
             msg.sender == ChairPerson,
             "Only the chairperson can give access to vote"
@@ -77,7 +78,7 @@ contract BallotVoteOracle is Ownable {
 
     ///@notice vote on an candidate based on his idCandidate
     ///@param idCandidate the id of the candidate
-    function addCardvote(uint idCandidate) public {
+    function addCardVote(uint idCandidate) public {
         Voter storage sender = AutorizedVotersAddress[msg.sender];
         require(sender.weight != 0, "Has no right to vote");
         require(!sender.voted, "Already voted");
