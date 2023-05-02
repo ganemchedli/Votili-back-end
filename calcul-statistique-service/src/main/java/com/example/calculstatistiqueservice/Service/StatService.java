@@ -20,7 +20,7 @@ public interface StatService {
 	Float  CalculerStatRegionSud(JsonNode data,int id);
 	Float  CalculerStatRegionOuest(JsonNode data,int id);
 	Float  CalculerStatRegionEst(JsonNode data,int id);
-	List<Integer>    calculstatGenerale(JsonNode data);
+	List<Integer>calculstatGenerale(JsonNode data);
 	int    CalculNbreVote(JsonNode data,int id);
 	
 	
