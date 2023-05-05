@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.example.electionservice.entities.Election;
 @Repository
 public interface ElectionRepository extends JpaRepository<Election, Long> {
-
 }

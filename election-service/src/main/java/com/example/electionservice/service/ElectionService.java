@@ -3,11 +3,10 @@ package com.example.electionservice.service;
 import java.util.List;
 
 import com.example.electionservice.entities.Admin;
-import com.example.electionservice.entities.Condidat;
+import com.example.electionservice.entities.Candidate;
 import com.example.electionservice.entities.Election;
 import com.example.electionservice.entities.ElectionProgrammee;
 import com.example.electionservice.entities.ElectionStandard;
-import com.example.electionservice.entities.Personne;
 import com.example.electionservice.entities.User;
 
 public interface ElectionService {
@@ -27,7 +26,7 @@ public interface ElectionService {
 	
 	void AjouterUnUsers(User users , Long idElection); // ajout des users à l election
 	void AssocieUnAdmin(Admin admin, Long idElection);
-	void AjouterUnCondidats(Condidat condidats, Long idElection);
+	void AjouterUnCondidats(Candidate condidats, Long idElection);
 	
 	
 	/* User ajouterUser(User user);

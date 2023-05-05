@@ -8,33 +8,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Code {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Code(Long id) {
-		super();
-		this.id = id;
-	}
-
-	public Code() {
-		super();
-		// TODO Auto-generated constructor stub
-		}
 
 	@Override
 	public String toString() {

@@ -1,22 +1,19 @@
 package com.example.electionservice.service;
 
-import java.util.Set;
-
 import java.util.List;
 
-import com.example.electionservice.entities.Condidat;
-import com.example.electionservice.entities.Election;
+import com.example.electionservice.entities.Candidate;
 import com.example.electionservice.entities.Personne;
 import com.example.electionservice.entities.User;
 
 public interface PersonneService {
 	
 	User ajouterUser(User user);
-	 Condidat ajouterCondidat(Condidat condidat);
+	 Candidate ajouterCondidat(Candidate candidate);
 	 Personne ajouterpersonne(Personne personne);
 	 
 	 void SupprimerVotant(User user);
-	  void SupprimerCondidat(Condidat condidat);
+	  void SupprimerCondidat(Candidate candidate);
 	  void SupprimerPersonne(Long id);
 	 
 	  // List<Personne> test();

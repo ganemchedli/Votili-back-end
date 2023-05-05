@@ -11,9 +11,6 @@ import jakarta.persistence.Table;
 @Entity
 @DiscriminatorValue("Codenum")
 public  class CodeNum  extends Code {
-	
-	
-	
 
 	public CodeNum() {super();}
 	

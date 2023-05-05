@@ -19,40 +19,21 @@ import com.google.zxing.WriterException;
 public class controllercode {
 	@Autowired
 	CodeserviceImpl cs;
-	
-	
-	@RequestMapping("/hello")
-	public String sayhello()
-	{return "hello world!";
-	}
-	
+
 	@GetMapping (path="/code/{id}")
-	
-	public Code getcodebyid (@PathVariable Long id)
-	{
+	public Code getcodebyid (@PathVariable Long id) {
 		return cs.getCode(id);
-		
 	}
 	
 	@GetMapping (path ="/creecodenum")
-	public Code Creecodenum()
-	
-	{
+	public Code Creecodenum() {
 		return cs.CreeCodeNum();
 		
 	}
-	
-	
+
 	@GetMapping (path ="/creeqrcode")
-	public Code CreeQRcode() throws WriterException, IOException
-	
-	{
+	public Code CreeQRcode() throws WriterException, IOException {
 		return cs.CreeQRcode();
-		
 	}
-	
-	
-	
-	
 
 }
