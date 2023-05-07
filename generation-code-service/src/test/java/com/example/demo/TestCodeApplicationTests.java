@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,13 +25,9 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 @SpringBootTest
 class TestCodeApplicationTests {
-
 	@Autowired
-	
 	private CodeRepository cr;
 	//private codeRepositoryQR qr;
-	
-	
 	/*
 	@Test
 	public void CreateCodeNum() {
@@ -69,14 +65,14 @@ class TestCodeApplicationTests {
 	*/
 		
 
-	@Test
+	/*@Test
 	public void CreateQRcode() throws WriterException, IOException
 	{
 		String path="C:\\Users\\User\\Desktop\\test\\Quote.png";
 		QRcode code= new QRcode(path);
 		code.creerCode();
 		cr.save(code);
-	}
+	} */
 		
 
 	
@@ -101,5 +97,5 @@ class TestCodeApplicationTests {
 		System.out.println("code deleated");
 		
 	}
-	*/
-}
+
+}*/

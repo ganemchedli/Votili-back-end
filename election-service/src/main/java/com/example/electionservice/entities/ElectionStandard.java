@@ -8,7 +8,7 @@ import lombok.*;
 @DiscriminatorValue("ElectionStandard")
 @Setter
 @Getter
-public class ElectionStandard extends Election {
+public class ElectionStandard extends Election{
 	@Override
 	public String toString() {
 		return "ElectionStandard [getStatut()=" + getStatut() + ", getId()=" + getId() + ", getTitre()=" + getTitre()

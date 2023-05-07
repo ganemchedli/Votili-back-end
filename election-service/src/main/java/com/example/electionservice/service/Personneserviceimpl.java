@@ -80,8 +80,8 @@ public class Personneserviceimpl implements PersonneService {
         List<String> res = new ArrayList<>();
         Personne per = pr.findById(id).orElseThrow(() -> new EntityNotFoundException("personne n existe pas"));
         for (Election election : per.getElections()) {
-            res.add(election.getCode());
-
+            String codeId = String.format("%d", election.getCodeId());
+            res.add(codeId);
         }
         return res;
 

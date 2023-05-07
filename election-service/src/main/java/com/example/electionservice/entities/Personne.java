@@ -13,14 +13,14 @@ import java.util.List;
 public  class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nom;
-	private String prenom;
-	private String login;
-	private String password;
-	private int numcin;
+	protected Long id;
+	protected String nom;
+	protected String prenom;
+	protected String login;
+	protected String password;
+	protected int numcin;
 	@ManyToMany(mappedBy ="personnes")
-	private List<Election> elections = new ArrayList<>();
+	protected List<Election> elections = new ArrayList<>();
 	@Override
 	public String toString() {
 		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password="

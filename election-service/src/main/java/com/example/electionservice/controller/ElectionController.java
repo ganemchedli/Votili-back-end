@@ -10,11 +10,9 @@ import java.util.List;
 
 
 @RestController
-public class controller {
-
+public class ElectionController {
     @Autowired
     ElectionServiceImpl es;
-
     @Autowired
     Personneserviceimpl ps;
 
@@ -47,7 +45,6 @@ public class controller {
     @GetMapping(path = "/personnes")
     public List<Personne> getallpersonnes() {
         return ps.getallpersonnes();
-
     }
 
     @PostMapping(path = "/adduserElection/{id}") // ajouter un utilisateur à une élection

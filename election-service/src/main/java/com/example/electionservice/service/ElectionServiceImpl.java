@@ -38,7 +38,6 @@ public class ElectionServiceImpl implements ElectionService {
         return er.save(es);
     }
 
-
     @Override
     public void OuvrirElection(Election election) {
         // TODO Auto-generated method stub

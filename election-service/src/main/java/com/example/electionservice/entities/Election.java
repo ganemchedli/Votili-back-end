@@ -21,9 +21,9 @@ import lombok.*;
 @Table(name="Election")
 @Data
 public abstract class Election {
-    @Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Long id;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		protected Long id;
     @ManyToMany
     @JoinTable(
 			name="personne_election",
@@ -31,7 +31,7 @@ public abstract class Election {
 			inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
 			)
 	protected List<Personne> personnes = new ArrayList<>();
-	protected String code;
+	protected int codeId;
 	protected String titre;
 	protected String description;
 	protected Date dateCreation;

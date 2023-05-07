@@ -15,10 +15,9 @@ import lombok.*;
 public class ElectionProgrammee extends Election {
 	private Date datedeb;
 	private Date datefin;
-	private int Minvote;
-
+	private int minvote;
 	@Override
 	public String toString() {
-		return "ElectionProgrammee [datedeb=" + datedeb + ", datefin=" + datefin + ", Minvote=" + Minvote + "]";
+		return "ElectionProgrammee [datedeb=" + datedeb + ", datefin=" + datefin + ", Minvote=" + minvote + "]";
 	}
 }
