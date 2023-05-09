@@ -8,6 +8,32 @@ import "./Ownable.sol";
 /// @author Ichrak Ben Hsinne and Ganem Chedli
 /// @notice Make Ballot to vote on a candidate
 contract BallotVote is Ownable {
+    //structs
+    struct Voter {
+        int id;
+        bytes32 name;
+        bytes32 lastName;
+        uint256 cin;
+        uint8 age;
+        bytes32 region;
+        Genre genre; // enum
+        bool bac;
+        bool voted;
+        uint weight;
+    }
+
+    struct Candidate {
+        uint id;
+        bytes32 name;
+        uint voteCount;
+    }
+
+    struct VoteCard {
+        Voter votant;
+        Candidate candidate;
+        uint256 DateVote;
+        bytes32 codeElection;
+    }
     //variables
     address public ChairPerson;
     Candidate[] public Candidates;
@@ -21,36 +47,27 @@ contract BallotVote is Ownable {
     //mappings
     mapping(address => Voter) private voterRegister;
     mapping(address => Voter) public AutorizedVotersAddress;
-    //structs
-    struct Voter {
-        int id;
-        string name;
-        string lastName;
-        uint256 cin;
-        uint8 age;
-        string region;
-        Genre genre; // enum
-        bool bac;
-        bool voted;
-        uint weight;
-    }
-
-    struct Candidate {
-        uint id;
-        string name;
-        uint voteCount;
-    }
-
-    struct VoteCard {
-        Voter votant;
-        Candidate candidate;
-        uint256 DateVote;
-        string codeElection;
-    }
+    
 
     enum Genre {
         Homme,
         Femme
+    }
+
+    constructor(bytes32[] memory proposalNames) {
+        ChairPerson = msg.sender;
+        voterRegister[ChairPerson].weight = 1;
+        uint counter = 0;
+        for (uint i = 0; i < proposalNames.length; i++) {
+            // 'Proposal({...})' creates a temporary
+            // Proposal object and 'proposals.push(...)'
+            // appends it to the end of 'proposals'.
+            Candidates.push(Candidate({
+                id : counter++,
+                name: proposalNames[i],
+                voteCount: 0
+            }));
+        }
     }
 
     ///@notice give the right to vote to an address

@@ -18,11 +18,11 @@ contract BallotVoteOracle is Ownable {
     //structs
     struct Voter {
         int id;
-        string name;
-        string lastName;
+        bytes32 name;
+        bytes32 lastName;
         uint256 cin;
         uint8 age;
-        string region;
+        bytes32 region;
         Genre genre; // enum
         bool bac;
         bool voted;
@@ -31,7 +31,7 @@ contract BallotVoteOracle is Ownable {
 
     struct Candidate {
         uint id;
-        string name;
+        bytes32 name;
         uint voteCount;
     }
 
